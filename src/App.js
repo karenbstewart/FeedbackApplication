@@ -5,7 +5,16 @@ const comments = [
     {id:1, text: 'comment one'},
     {id:2, text: 'comment two'},
     {id:3, text: 'comment three'},
-]
+    ]
+
+    const loading = false;
+    const showComments = true;
+
+    if (loading) {
+        return <h1>Loading... </h1>
+    }
+    
+
 
     return (
         <div className='container'>
@@ -13,16 +22,19 @@ const comments = [
              <p>{body.toUpperCase()}</p>
              <p>{5+5}</p>
 
-             {Math.random() * (5+5)}
+             <p>{Math.random() * (5+5)}</p>
 
-             <div>
-                 <h3>comments ({comments.length})</h3>
-                 <ul>
+             {showComments && (    
+                <div className='comments'>
+                <h3>comments ({comments.length})</h3>
+                <ul>
                      {comments.map((comment, index) => (
                          <li key={index}>{comment.text}</li>
                      ))}
-                 </ul>
-             </div>
+                </ul>
+            </div>)}
+
+         
         </div>
        
     )
